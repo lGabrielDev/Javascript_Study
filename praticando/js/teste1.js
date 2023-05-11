@@ -1,9 +1,7 @@
+let i = 0;
 
-
-const n1 = 5 + 5 * 2;
-console.log(n1); // 15
-
-const n2 = (5 + 5) * 2;
-console.log(n2) // 20
-
-
+do{
+    document.getElementById("titleBolado").innerHTML += "salve! <br>";
+    i++;
+}
+while(i < 4);
