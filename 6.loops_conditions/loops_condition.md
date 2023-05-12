@@ -119,4 +119,4 @@ for(let i of numbers){
 <br>
 
 <!-- next page button -->
-[<img src="https://img.icons8.com/?size=512&id=47092&format=png" alt="next page button" width="70px" align="right">](../6.loops_conditions/loops_condition.md)
+[<img src="https://img.icons8.com/?size=512&id=47092&format=png" alt="next page button" width="70px" align="right">](../7.functions_methods/0.functions.md)
