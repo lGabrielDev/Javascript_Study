@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+
+#button{
+    width: 100px;
+}
+
+div{
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+
+
+/* cor de fundo verde */
+.colorirFundoVerde{
+    background-color: rgb(66, 156, 66);
+}
+
+
+/* cor de fundo tomato */
+.colorirFundoTomato{
+    background-color: tomato;
+}
+
+
