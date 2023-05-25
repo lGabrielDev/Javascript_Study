@@ -1,15 +1,31 @@
-//function alterar as cores / alterar as classes
-function trocarCor(element){
-    element.classList.toggle("colorirFundoTomato"); //remove ou adiciona a class "tomato"
-    element.classList.toggle("colorirFundoVerde"); //remove ou adiciona a class "verde"
+//selecionamos o body
+const body = document.querySelector("body");
+
+
+//selecionamos o button
+const button = document.querySelectorAll(".sunIcon")[0];
+
+
+//criando evento para o button
+button.addEventListener("click", function(){
+    body.classList.toggle("darkMode");
+
+    if(body.classList.contains("darkMode")){
+        localStorage.setItem("temaEscolhido", "darkTheme");
+    }
+    else{
+        localStorage.removeItem("temaEscolhido");
+    }
+});
+
+
+//selecionamos o item/variable do localStorage
+const temaEscolhido = localStorage.getItem("temaEscolhido");
+
+//se existir a varaible no navegador, mudar o tema pra dark.
+if(temaEscolhido){
+    body.classList.toggle("darkMode");
 }
 
 
-//criando evento "click" no button. Vai ficar alternando as cores do elemento
-const button = document.querySelector("button#button");
-button.addEventListener("click", function(){
-    //selecionamos o elemento que vamos alterar
-    const div = button.parentNode.querySelector("div.quadrado");
-    
-    trocarCor(div);
-});
+

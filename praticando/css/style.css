@@ -1,37 +1,48 @@
-*{
-    margin: 0;
-    padding: 0;
+/* css colors variables */
+:root{
+    --corFundo:white;
+    --corTexto:black;
 }
 
+/* configs padraozin */
 body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--corFundo); /* vamos mudar essas cores */
+    color: var(--corTexto); /* vamos mudar essas cores */
+}
+
+.container{
+    width: 500px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
 }
 
 
-#button{
-    width: 100px;
+.sunIcon{
+    font-size: 6rem;
+    cursor: pointer;
 }
 
-div{
-    width: 100px;
-    height: 100px;
-    border: 2px solid black;
+.title{
+    font-size: 2rem;
 }
 
-
-/* cor de fundo verde */
-.colorirFundoVerde{
-    background-color: rgb(66, 156, 66);
-}
-
-
-/* cor de fundo tomato */
-.colorirFundoTomato{
-    background-color: tomato;
+.text{
+    font-size: 1.2em;
+    text-align: justify;
 }
 
 
+/* seletor para modificar a cor das variables */
+.darkMode{
+    --corFundo:black;
+    --corTexto:white;
+}
