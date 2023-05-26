@@ -16,7 +16,7 @@ Um bom exemplo para utilizar o localStorage, seria para aplicar o **Dark Mode** 
 
 ## Criando uma variable
 
-Por padrão, criamos uma variable simples, onde temos 1 key e 1 value. Esse value é uma String.
+Por padrão, criamos uma variable simples, onde temos **1 key e 1 value**. Esse value é uma String.
 
 ```js
 //criamos 2 variables dentro do "localStorage"/navegador/pc do usuário
@@ -68,7 +68,7 @@ console.log(JSON.parse(personagemInsano));
 <hr>
 <br>
 
-## Exercise 
+## Exercise 1
 
 ✏️ Crie o seguinte exercício:
 
@@ -164,4 +164,54 @@ Vamos usar uma variable criada no localStorage para manipular nossos elementos. 
 
     /* ------------ chamamos a function. Assim, sempre que carregar a pagina, essa function é acionada. ------------ */
     alterarDivs(formulario, mensagemBoasVindas);
+    ```
+
+
+<hr>
+<br>
+
+## Exercise 2
+
+✏️ Faça o seguinte exercício:
+
+<img src="../images/local_storage_exercise2.gif" alt="exercise 2 gif example" width="350px">
+
+Mesmo recarregando a página, os valores dos inputs continuam. Para fazer isso, basta armazenar os valores inputados dentro do localStorage.
+
+
+- js
+    ```js
+    //selecionando os elementos
+    const estado = document.querySelector("#estadoInput");
+    const dataInicio = document.querySelector("#inicioInput");
+    const dataFim = document.querySelector("#fimInput");
+    const button = document.querySelector("#button");
+
+
+
+    //function para salvar as informacoes inputadas no localStorage/computador/navegador do usuario
+    function salvarInformacoes(){
+        localStorage.setItem("estado", estado.value); //pegamos o valor do input
+        localStorage.setItem("inicio", dataInicio.value);
+        localStorage.setItem("fim", dataFim.value);
+    }
+
+
+
+    //criando um "click" event para o button
+    button.addEventListener("click", function(e){
+        salvarInformacoes();
+    });
+
+
+    //pegando o valor da variable do localStorage e colocando dentro do input
+
+    //selecionamos as variables do localStorage
+    const estadoLocalStorage = localStorage.getItem("estado");
+    const dataInicioLocalStorage = localStorage.getItem("inicio");
+    const DataFimLocalStorage = localStorage.getItem("fim");
+
+    estado.value = estadoLocalStorage;
+    dataInicio.value = dataInicioLocalStorage;
+    dataFim.value = DataFimLocalStorage;
     ```
