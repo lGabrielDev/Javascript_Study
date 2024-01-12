@@ -1,5 +1,6 @@
+<!-- title -->
 <h1 align="center">
-    if else
+    <span>if else</span>
     <img src="https://cdn-icons-png.flaticon.com/512/4394/4394632.png" alt="image icon" width="90px" align="center">
 </h1>
   
@@ -34,26 +35,27 @@ else{
 
 ✏️ Faça um programinha:
 
+- Numero menor que 0 --> Numero negative
 - Numero entre 0 e 10 --> Numeros legais
-- Numero entre 11 e 99 --> Numeros grandin
+- Numero entre 11 e 100 --> Numeros grandin
 - Numero maior que 100 --> Numeros Grandao
 
 
 ```js
-let number = 5;
+const number = 565;
 
-//number between 0 and 10
-if(number >=0 && number <= 10){
-    console.log("Numero perfeito de trabalhar");
+if(number < 0){
+    console.log("negative number...");
 }
 else{
-    //number between 11 and 99
-    if(number < 100){
-        console.log("Numero grandin");
+    if(number >=0 && number <= 10){
+        console.log("Perfect number to work with");
     }
-    //number equal or greater than 100
+    else if(number <= 100){
+        console.log("numero grandin");
+    }
     else{
-        console.log("Numero GRANDAO");
+        console.log("numero GRANDAO");
     }
 }
 ```

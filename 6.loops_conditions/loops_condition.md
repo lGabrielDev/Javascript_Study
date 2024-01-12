@@ -1,8 +1,8 @@
+<!-- title -->
 <h1 align="center">
-    Loops
+    <span>Loops</span>
     <img src="https://cdn-icons-png.flaticon.com/512/510/510884.png" alt="image icon" width="90px" align="center">
 </h1>
-
 
 ## Index
 
@@ -10,7 +10,6 @@
 - [`do while`](#do-while)
 - [`for`](#for)
 - [`for of` --> for each do java](#forOfTitle)
-
 
 <hr>
 <br>
@@ -38,10 +37,7 @@ Porém aqui, mesmo se a condicao for false, o bloco de código vai ser executado
 
 > "Faça tal coisa... Se a condicao for true, faça denovo..." - lGabrielDev
 
-
 Imagina um programa de um jogo. O jogo precisa rodar pelo menos uma vez. Se o usuário quiser jogar novamente, o loop acontece.
-
-<br>
 
 ### Syntax: <img src="https://cdn-icons-png.flaticon.com/512/1442/1442581.png" alt="curly braces icon" width="20px" align="center">
 

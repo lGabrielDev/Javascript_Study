@@ -1,5 +1,6 @@
+<!-- title -->
 <h1 align="center">
-    Dark mode
+    <span>Dark mode</span>
 </h1>
 
 Crie o exercício Abaixo:
@@ -60,7 +61,6 @@ Crie o exercício Abaixo:
         align-items: center;
     }
 
-
     .sunIcon{
         font-size: 6rem;
     }
@@ -74,7 +74,6 @@ Crie o exercício Abaixo:
         text-align: justify;
     }
 
-
     /* seletor para modificar a cor das variables */
     .darkMode{
         --corFundo:black;
@@ -84,47 +83,58 @@ Crie o exercício Abaixo:
     
     <br>
 
-
 - js
 
     ```js
-    //selecionamos o "body"
+    //images
+    const bulbOnSrc = "https://www.svgrepo.com/show/452171/bulb.svg";
+    const bulbOffSrc = "https://www.svgrepo.com/show/179323/light-bulb-technology.svg";
+
+    //body
     const body = document.querySelector("body");
 
-    //selecionamos o button
-    const button = document.querySelectorAll(".sunIcon")[0]; // o primeiro button da class "tal"
+
+    //method to add/remove the darkmode class on body
+    function onAndOffDarkMode(){
+        body.classList.toggle("darkMode");
+    }
 
 
-
-    //criamos o "click" event
-    button.addEventListener("click", function(){
-
-        body.classList.toggle("darkMode"); //alteramos a cor
-
-        //Se o darkMode estiver ativo, salvamos um item no "localStorage". Assim, salvamos um item no navegador.
+    //method the "bulb" images
+    function changeImages(){
+        const bulb = document.querySelector("img.bulb");
+        
         if(body.classList.contains("darkMode")){
-            localStorage.setItem("tema", "darkMode"); //cria uma variable no navegador. Mesmo se recarregarmos a pagina, essa variable nao se perde.
+            bulb.setAttribute("src", bulbOnSrc);
         }
-        //Se o darkMode nao tiver ativo, removemos a variable do "localStorage/navegador"
         else{
-            localStorage.removeItem("tema");
+            bulb.setAttribute("src", bulbOffSrc);
+        }
+    }
+
+
+    const bulb = document.querySelector(".bulb");
+
+    // "click" event
+    bulb.addEventListener("click", function(){
+        onAndOffDarkMode();
+        changeImages();
+
+        if(localStorage.getItem("darkIsOn") == null){
+            localStorage.setItem("darkIsOn", "dark mode is on");
+        }
+        else{
+            localStorage.removeItem("darkIsOn");
         }
     });
 
 
-    //criamos uma variable para representar um item do "localStorage"
-    const temaEscolhido = localStorage.getItem("tema");
-
-    //se existir um item/variable no "localStorage/navegador" chamada "tema", colocamos o darkMode
-    if(temaEscolhido != null){
-        body.classList.toggle("darkMode");
+    // se a variable existir no localstorage, aplicamos o dark denovo
+    if(localStorage.getItem("darkIsOn") != null){
+        onAndOffDarkMode();
+        changeImages();
     }
     ```
-
-<br>
-<br>
-
-
 
 <br>
 <br>

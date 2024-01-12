@@ -1,10 +1,11 @@
+<!-- title -->
 <h1 align="center">
-    LocalStorage
+    <span>LocalStorage</span>
     <img src="https://img.icons8.com/?size=512&id=bEVnsZmOTWIY&format=png" alt="image icon" width="90px" align="center">
 </h1>
 
 
-Recurso para criarmos variables no navegador/computador do usuário. Assim, mesmo ao recarregar ou fechar a página os dados ainda continuam.
+Recurso para criarmos variables no navegador do usuário. Assim, mesmo ao recarregar ou fechar a página os dados ainda continuam.
 
 Esses dados ficam na aba `Application` do *inspect/inspecionar* do navegador.
 
@@ -110,63 +111,56 @@ Vamos usar uma variable criada no localStorage para manipular nossos elementos. 
 - js
 
     ```js
-    //selecionando os elementos que vamos usar
-    const formulario = document.querySelector("#containerFormulario");
-    const inputName = document.querySelector("#inputName");
-    const submitButton = document.querySelector("#enviarButton");
-    const mensagemBoasVindas = document.querySelector("#boasVindasContainer");
-    const textoSpan = document.querySelector("#boasVindasSpan");
-    const sairButton = document.querySelector("#sairButton");
+    //elements we are going to use
+    const input = document.querySelector("#nameInput");
+    const submitButton = document.querySelector(".submitButton");
+    const form = document.querySelector(".form");
+    const title = document.querySelector(".title");
+    const welcomeDiv = document.querySelector(".welcomeDiv");
+    const welcomeMessage = document.querySelector(".welcomeMessage");
+    const personNameSpan = document.querySelector(".personNameSpan");
+    const backButton = document.querySelector(".backButton");
 
 
-    /* ------------ function para alterar as divs ------------ */
-    function alterarDivs(divFormulario, divMensagemBoasVindas){
-        const usuarioLogado = localStorage.getItem("usuario");
+    //show the welcome div
+    function showWelcomeDiv(personName){
+        form.style.display = "none";
+        title.style.display = "none";
 
-        //se a variable dentro do localStorage existir...
-        if(usuarioLogado != null){
-            divFormulario.style.display = "none"; //esconde o form
-            divMensagemBoasVindas.style.display = "block"; //mostra mensagem de boas vindas
+        welcomeDiv.style.display = "block";
+        personNameSpan.textContent = personName;
+    }
 
-            //substituimos o span de boas vindas, para o nome inputado
-            textoSpan.textContent = localStorage.getItem("usuario");
-        }
-        else{
-            divFormulario.style.display = "block"; //mostra o form
-            divMensagemBoasVindas.style.display = "none"; //esconde a mensagem
-        }
+    //back to form
+    function backToForm(){
+        welcomeDiv.style.display = "none";
+
+        form.style.display = "block";
+        title.style.display = "block";
     }
 
 
-    /* ------------ criando "click" event parao "submitButton" ------------ */
-    submitButton.addEventListener("click", function(e){
-        e.preventDefault(); //vamos tratar esse submit button como um button qualquer.
+    //"submit" event
+    submitButton.addEventListener("click", function(){
+        localStorage.setItem("person", input.value);
+        const personName = localStorage.getItem("person");
+        showWelcomeDiv(personName);
+    });
 
-        //criamos uma variable dentro do "localStorage"
-        localStorage.setItem("usuario", inputName.value);
-
-
-        //chamamos a function para mostrar e esconder as divs
-        alterarDivs(formulario, mensagemBoasVindas);
+    //"back to form" event
+    backButton.addEventListener("click", function(){
+        localStorage.removeItem("person");
+        backToForm();
     });
 
 
-
-    /* ------------ criando "click" event parao "sairButton" ------------ */
-    sairButton.addEventListener("click", function(){
-        //removemos a variable.
-        localStorage.removeItem("usuario");
-
-        alterarDivs(formulario, mensagemBoasVindas);
-    });
-
-
-
-    /* ------------ chamamos a function. Assim, sempre que carregar a pagina, essa function é acionada. ------------ */
-    alterarDivs(formulario, mensagemBoasVindas);
+    //Even if we refresh the page, we will still in the same page
+    if(localStorage.getItem("person") != null){
+        showWelcomeDiv(localStorage.getItem("person"));
+    }
     ```
 
-
+⚠️ Sempre que for manipular (adicionar/remover) uma variable do localStorage, SEMPRE faça essas modificacoes DENTRO DO EVENTO.
 <hr>
 <br>
 
